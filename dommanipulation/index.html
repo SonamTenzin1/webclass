@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom manipulaton</title>
+</head>
+<body class="body">
+    <style>
+        .textwhite{
+            color: white;
+        }
+        .textpurple{
+            color: purple;
+        }
+    </style>
+    <h1 id="text">dom manipulation</h1>
+
+    <button id="red">red</button><br>
+    <button id="blue">blue</button><br>
+    <button id="white">white</button><br>
+    <button id="purple">purple</button><br>
+    <button id="suprise">suprise</button><br>
+    <button id="unsuprise">dont suprise me</button><br>
+    
+    <script>
+        console.log("hello");
+
+        function consoleRed(){
+            console.log("red clicked");
+            document.body.style.backgroundColor = "red";
+        }
+
+        function consoleBlue(){
+            console.log("blue clicked");
+            document.body.style.backgroundColor = "blue";
+        }
+
+        function consoleWhite(){
+            console.log("white clicked");
+            document.getElementById("text").classList.remove("textpurple");
+            document.getElementById("text").classList.add("textwhite");
+        }
+
+        function consolePurple(){
+            console.log("purple clicked");
+            document.getElementById("text").classList.remove("textwhite");
+            document.getElementById("text").classList.add("textpurple");
+        }
+
+        const red = document.getElementById("red");
+        const blue = document.getElementById("blue");
+        
+        red.addEventListener("click", consoleRed);
+        blue.addEventListener("click", consoleBlue);
+        white.addEventListener("click", consoleWhite);
+        purple.addEventListener("click", consolePurple);
+        suprise.addEventListener("click", function(){
+            console.log("suprise clicked");
+            const para= document.createElement("p");
+            para.innerHTML = "suprise";
+            document.body.append(para);
+        });
+        unsuprise.addEventListener("click", function(){
+            console.log("unsuprise clicked");
+            const para= document.querySelector("p");
+            para.remove();
+        });
+    </script>
+</body>
+</html>
